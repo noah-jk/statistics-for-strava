@@ -298,6 +298,64 @@
                 {% endif %}
             </div>
             {% block extraStatsUnderColumns %}
+                {% if strengthSets is defined and strengthSets|length > 0 %}
+                    <div class="grid grid-cols-1 gap-4">
+                        <div id="accordion-strength" data-accordion="collapse"
+                             data-active-classes="text-gray-900"
+                             data-inactive-classes="text-gray-900">
+                            <a id="accordion-strength-heading"
+                               data-accordion-target="#accordion-strength-body"
+                               aria-expanded="false"
+                               aria-controls="accordion-strength-body"
+                               class="hover:underline cursor-pointer flex items-center gap-3 justify-between w-full py-3 font-medium rtl:text-right text-gray-900">
+                                <span>{{ "Strength"|trans }} ({{ strengthSets|length }})</span>
+                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round"
+                                          stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </a>
+                            <div id="accordion-strength-body" class="hidden relative overflow-x-auto"
+                                 aria-labelledby="accordion-strength-heading">
+                                <table class="w-full text-sm text-center text-gray-500">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-2 py-3 text-left">{{ "Exercise"|trans }}</th>
+                                        <th scope="col" class="px-2 py-3">{{ "Sets"|trans }}</th>
+                                        <th scope="col" class="px-2 py-3">{{ "Reps"|trans }}</th>
+                                        <th scope="col" class="px-2 py-3">{{ "Weight"|trans }}</th>
+                                        <th scope="col" class="px-2 py-3">{{ "Est. 1RM"|trans }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for set in strengthSets %}
+                                        <tr class="{{ cycle(['bg-white border-b', 'border-b bg-gray-50'], loop.index0) }}">
+                                            <td class="px-2 py-2 text-left">{{ set.getExerciseName() }}</td>
+                                            <td class="px-2 py-2">{{ set.getNumberOfSets() }}</td>
+                                            <td class="px-2 py-2">{{ set.getNumberOfReps() }}</td>
+                                            <td class="px-2 py-2">
+                                                {% if set.isBodyweight() %}
+                                                    BW
+                                                {% else %}
+                                                    {{ set.getWeightLbs().toFloat()|formatNumber(0) }}<span class="text-xs"> lbs</span>
+                                                {% endif %}
+                                            </td>
+                                            <td class="px-2 py-2">
+                                                {% if set.getEstimatedOneRepMax() is not null %}
+                                                    {{ set.getEstimatedOneRepMax()|formatNumber(1) }}<span class="text-xs"> lbs</span>
+                                                {% else %}
+                                                    n/a
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             {% endblock extraStatsUnderColumns %}
             {% if segmentEfforts|length > 0 %}
                 <div class="grid grid-cols-1 gap-4">

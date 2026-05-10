@@ -22,6 +22,10 @@ use App\Domain\Activity\Stream\Metric\ActivityStreamMetric;
 use App\Domain\Activity\Stream\Metric\ActivityStreamMetricRepository;
 use App\Domain\Activity\Stream\Metric\ActivityStreamMetricType;
 use App\Domain\Activity\Stream\StreamType;
+use App\Domain\Activity\Strength\ExerciseName;
+use App\Domain\Activity\Strength\ExerciseSet;
+use App\Domain\Activity\Strength\StrengthWorkoutExercises;
+use App\Domain\Activity\Strength\StrengthWorkoutRepository;
 use App\Domain\Athlete\Athlete;
 use App\Domain\Athlete\AthleteRepository;
 use App\Domain\Challenge\ChallengeId;
@@ -40,6 +44,7 @@ use App\Infrastructure\KeyValue\Value;
 use App\Infrastructure\Serialization\Json;
 use App\Infrastructure\ValueObject\Measurement\Length\Kilometer;
 use App\Infrastructure\ValueObject\Measurement\Length\Meter;
+use App\Infrastructure\ValueObject\Measurement\Mass\Pound;
 use App\Infrastructure\ValueObject\Measurement\UnitSystem;
 use App\Infrastructure\ValueObject\String\Name;
 use App\Infrastructure\ValueObject\Time\SerializableDateTime;
@@ -80,6 +85,7 @@ trait ProvideTestData
         $this->addActivityThirteenFixtures();
         $this->addActivityFourteenFixtures();
         $this->addActivityFifteenFixtures();
+        $this->addActivitySixteenFixtures();
     }
 
     protected function addGeneralFixtures(): void
@@ -774,6 +780,30 @@ trait ProvideTestData
                 ->withSplitNumber(2)
                 ->withUnitSystem(UnitSystem::METRIC)
                 ->build()
+        );
+    }
+
+    private function addActivitySixteenFixtures(): void
+    {
+        /** @var ActivityRepository $activityRepository */
+        $activityRepository = $this->getContainer()->get(ActivityRepository::class);
+
+        $rawData = Json::decode('{"resource_state":3,"athlete":{"id":62214940,"resource_state":1},"name":"Morning Strength Training","distance":0,"moving_time":3600,"elapsed_time":3600,"total_elevation_gain":0,"type":"WeightTraining","sport_type":"WeightTraining","id":9999111111,"start_date":"2024-01-15T10:00:00Z","start_date_local":"2024-01-15T10:00:00Z","timezone":"(GMT+01:00) Europe/Brussels","utc_offset":3600,"location_city":null,"location_state":null,"location_country":null,"achievement_count":0,"kudos_count":0,"comment_count":0,"athlete_count":1,"photo_count":0,"trainer":false,"commute":false,"manual":false,"private":false,"visibility":"everyone","flagged":false,"gear_id":null,"start_latlng":[],"end_latlng":[],"average_speed":0,"max_speed":0,"has_heartrate":false,"heartrate_opt_out":false,"display_hide_heartrate_option":false,"upload_id":9999111111,"upload_id_str":"9999111111","external_id":"garmin-activity-9999111111.fit","from_accepted_tag":false,"pr_count":0,"total_photo_count":0,"has_kudoed":false,"description":"Squat 3x5@315\nBench Press 4x8@185\nPull Up 3x10","calories":350,"perceived_exertion":null,"prefer_perceived_exertion":null,"segment_efforts":[],"splits_metric":[],"splits_standard":[],"laps":[],"photos":{"primary":null,"use_primary_photo":false,"count":0},"stats_visibility":[],"hide_from_home":false,"device_name":null,"embed_token":"abc123","available_zones":[],"_id":143}');
+        $activity = Activity::createFromRawData($rawData);
+        $activityRepository->add(ActivityWithRawData::fromState(
+            $activity,
+            $rawData
+        ));
+
+        /** @var StrengthWorkoutRepository $strengthWorkoutRepository */
+        $strengthWorkoutRepository = $this->getContainer()->get(StrengthWorkoutRepository::class);
+        $strengthWorkoutRepository->saveForActivity(
+            $activity->getId(),
+            StrengthWorkoutExercises::fromArray([
+                ExerciseSet::create(ExerciseName::fromString('Squat'), 3, 5, Pound::from(315.0)),
+                ExerciseSet::create(ExerciseName::fromString('Bench Press'), 4, 8, Pound::from(185.0)),
+                ExerciseSet::create(ExerciseName::fromString('Pull Up'), 3, 10),
+            ]),
         );
     }
 

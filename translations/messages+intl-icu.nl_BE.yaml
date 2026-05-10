@@ -99,6 +99,8 @@ Elevation: Hoogte
 Elliptical: Elliptical
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: Avond
+'Est. 1RM': 'Est. 1RM'
+Exercise: Oefening
 'Excludes commutes': 'Excludes commutes'
 'FTP history': 'FTP historiek'
 'Fastest times': 'Fastest times'
@@ -294,6 +296,7 @@ Rides: Ritten
 Rowing: Roeien
 Running: Running
 Runs: Hardlopen
+Reps: Herhalingen
 Sail: Zeilen
 Sat: Zat
 Saturday: Zaterdag
@@ -301,6 +304,8 @@ Search: Zoeken
 'Search activity...': 'Zoek activiteit...'
 'Search segment...': 'Zoek segment...'
 Segments: Segmenten
+Sets: Sets
+Strength: Kracht
 Sep: Sep
 'Show information': 'Informatie tonen'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'

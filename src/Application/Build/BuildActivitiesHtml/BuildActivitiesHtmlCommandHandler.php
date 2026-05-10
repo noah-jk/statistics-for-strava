@@ -15,6 +15,7 @@ use App\Domain\Activity\Lap\ActivityLapRepository;
 use App\Domain\Activity\LeafletMap;
 use App\Domain\Activity\PowerDistributionChart;
 use App\Domain\Activity\Split\ActivitySplitRepository;
+use App\Domain\Activity\SportType\SportType;
 use App\Domain\Activity\SportType\SportTypeRepository;
 use App\Domain\Activity\Stream\ActivityPowerRepository;
 use App\Domain\Activity\Stream\ActivityStreamRepository;
@@ -23,6 +24,8 @@ use App\Domain\Activity\Stream\CombinedStream\CombinedStreamProfileCharts;
 use App\Domain\Activity\Stream\Metric\ActivityStreamMetricRepository;
 use App\Domain\Activity\Stream\Metric\ActivityStreamMetricType;
 use App\Domain\Activity\Stream\StreamType;
+use App\Domain\Activity\Strength\StrengthWorkoutExercises;
+use App\Domain\Activity\Strength\StrengthWorkoutRepository;
 use App\Domain\Activity\VelocityDistributionChart;
 use App\Domain\Athlete\AthleteRepository;
 use App\Domain\Athlete\HeartRateZone\HeartRateZoneConfiguration;
@@ -52,6 +55,7 @@ final readonly class BuildActivitiesHtmlCommandHandler implements CommandHandler
         private ActivityLapRepository $activityLapRepository,
         private SportTypeRepository $sportTypeRepository,
         private SegmentEffortRepository $segmentEffortRepository,
+        private StrengthWorkoutRepository $strengthWorkoutRepository,
         private GearRepository $gearRepository,
         private DeviceRepository $deviceRepository,
         private FtpHistory $ftpHistory,
@@ -294,6 +298,9 @@ final readonly class BuildActivitiesHtmlCommandHandler implements CommandHandler
                     'profileChartHeight' => $profileChartHeight,
                     'hasProfileChart' => null !== $profileChart,
                     'bestEfforts' => $this->bestEffortsCalculator->forActivity($activity->getId()),
+                    'strengthSets' => SportType::WEIGHT_TRAINING === $activity->getSportType()
+                        ? $this->strengthWorkoutRepository->findByActivityId($activity->getId())
+                        : StrengthWorkoutExercises::empty(),
                 ]),
             );
 

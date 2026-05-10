@@ -99,6 +99,8 @@ Elevation: Dislivello
 Elliptical: Ellittica
 'Enter fullscreen mode': 'Entra in modalità schermo intero'
 Evening: Sera
+'Est. 1RM': 'Est. 1RM'
+Exercise: Esercizio
 'Excludes commutes': 'Esclude gli spostamenti casa-lavoro'
 'FTP history': 'Storico FTP'
 'Fastest times': 'Tempi più veloci'
@@ -294,6 +296,7 @@ Rides: Gare
 Rowing: Canottaggio
 Running: Running
 Runs: Corse
+Reps: Ripetizioni
 Sail: Vela
 Sat: Sab
 Saturday: Sabato
@@ -301,6 +304,8 @@ Search: Cerca
 'Search activity...': 'Cerca attività...'
 'Search segment...': 'Cerca segmento...'
 Segments: Segmenti
+Sets: Serie
+Strength: Forza
 Sep: Set
 'Show information': 'Mostra Informazione'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Mostra come il tuo TSB (Forma) e il rapporto A:C recupereranno nel tempo se fai giorni di riposo completo.'

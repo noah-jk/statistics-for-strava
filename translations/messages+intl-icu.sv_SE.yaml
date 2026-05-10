@@ -99,6 +99,8 @@ Elevation: Höjdmeter
 Elliptical: Elliptisk
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: Kväll
+'Est. 1RM': 'Est. 1RM'
+Exercise: Övning
 'Excludes commutes': 'Uteslut pendling'
 'FTP history': 'FTP historik'
 'Fastest times': 'Snabbaste tiderna'
@@ -294,6 +296,7 @@ Rides: Cykling
 Rowing: Rodd
 Running: Löpning
 Runs: Löpturer
+Reps: Reps
 Sail: Segling
 Sat: Lör
 Saturday: Lördag
@@ -301,6 +304,8 @@ Search: Sök
 'Search activity...': 'Sök aktivitet...'
 'Search segment...': 'Sök segment...'
 Segments: Segment
+Sets: Set
+Strength: Styrka
 Sep: Sep
 'Show information': 'Visa information'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'

@@ -99,6 +99,8 @@ Elevation: Dénivelé
 Elliptical: Elliptique
 'Enter fullscreen mode': 'Mode plein-écran'
 Evening: Soirée
+'Est. 1RM': 'Est. 1RM'
+Exercise: Exercice
 'Excludes commutes': 'Trajets domicile-travail exclus'
 'FTP history': 'Historique FTP'
 'Fastest times': 'Meilleurs temps'
@@ -294,6 +296,7 @@ Rides: 'Sorties vélo'
 Rowing: Aviron
 Running: 'Course à pied'
 Runs: 'Courses à pied'
+Reps: 'Répétitions'
 Sail: Voile
 Sat: Sam
 Saturday: Samedi
@@ -301,6 +304,8 @@ Search: Rechercher
 'Search activity...': 'Rechercher une activité...'
 'Search segment...': 'Rechercher un segment...'
 Segments: Segments
+Sets: 'Séries'
+Strength: Force
 Sep: Sep
 'Show information': 'Afficher les informations'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'

@@ -99,6 +99,8 @@ Elevation: Elevation
 Elliptical: Elliptical
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: Evening
+'Est. 1RM': 'Est. 1RM'
+Exercise: Exercise
 'Excludes commutes': 'Excludes commutes'
 'FTP history': 'FTP history'
 'Fastest times': 'Fastest times'
@@ -294,6 +296,7 @@ Rides: Rides
 Rowing: Rowing
 Running: Running
 Runs: Runs
+Reps: Reps
 Sail: Sail
 Sat: Sat
 Saturday: Saturday
@@ -301,6 +304,8 @@ Search: Search
 'Search activity...': 'Search activity...'
 'Search segment...': 'Search segment...'
 Segments: Segments
+Sets: Sets
+Strength: Strength
 Sep: Sep
 'Show information': 'Show information'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'

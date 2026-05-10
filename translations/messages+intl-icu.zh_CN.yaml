@@ -99,6 +99,8 @@ Elevation: 海拔高度
 Elliptical: 椭圆机
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: 晚上
+'Est. 1RM': '估计1RM'
+Exercise: 练习
 'Excludes commutes': 筛除通勤
 'FTP history': FTP历史
 'Fastest times': 最快时间
@@ -294,6 +296,7 @@ Rides: 骑行
 Rowing: 划船
 Running: 跑步
 Runs: 跑步
+Reps: 次数
 Sail: 帆船
 Sat: 周六
 Saturday: 星期六
@@ -301,6 +304,8 @@ Search: 搜索
 'Search activity...': 搜索活动...
 'Search segment...': 搜索路段...
 Segments: 路段
+Sets: 组数
+Strength: 力量训练
 Sep: 九月
 'Show information': 显示信息
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'

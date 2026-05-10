@@ -2,11 +2,13 @@
     "sportType": {
         "Ride": "#5470c6",
         "VirtualRide": "#91cc75",
-        "Run": "#fac858"
+        "Run": "#fac858",
+        "WeightTraining": "#ee6666"
     },
     "activityType": {
         "Ride": "#5470c6",
-        "Run": "#91cc75"
+        "Run": "#91cc75",
+        "Fitness": "#fac858"
     },
     "gear": {
         "gear-b12659861": "#5470c6",

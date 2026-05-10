@@ -1,6 +1,29 @@
 [
     {
         "active": true,
+        "searchables": "morning strength training",
+        "filterables": {
+            "sportType": "WeightTraining",
+            "start-date": 1705312800000,
+            "isCommute": "false",
+            "gear": "gear-none",
+            "device": "device-none"
+        },
+        "summables": {
+            "distance": 0,
+            "elevation": 0,
+            "moving-time": 1,
+            "calories": 350
+        },
+        "sort": {
+            "start-date": 1705312800,
+            "moving-time": 3600,
+            "calories": 350
+        },
+        "markup": "<tr class=\"group odd:bg-white border-b even:border-b even:bg-gray-50\">\n    <td class=\"px-2 py-2\">\n        15-01-24\n    </td>\n    <td class=\"px-2 py-2 truncate lg:sticky lg:left-0 group-odd:bg-white group-even:bg-gray-50\">\n        <a href=\"#\" data-model-content-url=\"/activity/activity-9999111111.html\" class=\"flex items-center gap-x-1 font-medium text-blue-600 hover:underline\" rel=\"nofollow\"><svg class=\"h-4 shrink-0\" fill=\"#F26722\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M21.4 13.913a2 2 0 01-2.83 0l-2.297-2.298-4.657 4.657 2.298 2.298a2 2 0 010 2.829L12.5 22.813a2 2 0 01-2.829 0l-.707-.707-1.207 1.207a2 2 0 01-2.828 0L.686 19.07a2 2 0 010-2.828l1.207-1.207-.707-.707a2 2 0 010-2.829L2.6 10.085a2 2 0 012.829 0l2.298 2.298 4.657-4.657-2.298-2.298a2 2 0 010-2.828L11.5 1.185a2 2 0 012.828 0l.708.707L16.243.685a2 2 0 012.828 0l4.243 4.243a2 2 0 010 2.828l-1.208 1.208.707.707a2 2 0 010 2.828zM12.913 2.6L11.5 4.014l8.485 8.485 1.414-1.414-2.121-2.121 2.621-2.622L17.657 2.1 16.45 3.307l2.828 2.828-1.414 1.414zm.884 6.54L9.14 13.797l1.06 1.06 4.658-4.656zM12.5 19.984L4.015 11.5 2.6 12.913l4.95 4.95-1.414 1.414-2.828-2.828L2.1 17.656l4.243 4.243 2.621-2.622 2.122 2.122z\" fill=\"\"></path></svg><span class=\"\">Morning Strength Training</span></a>\n    </td>\n    <td class=\"px-6 py-2\">\n        0<span class=\"text-xs\">km</span>\n    </td>\n    <td class=\"px-6 py-2\">\n        0<span class=\"text-xs\">m</span>\n    </td>\n    <td class=\"px-6 py-2\">\n        1:00:00\n    </td>\n    <td class=\"px-6 py-2\">\n                            0.0<span class=\"text-xs\">km/h</span>\n            </td>\n    <td class=\"px-6 py-2\">\n        n/a\n    </td>\n    <td class=\"px-6 py-2\">\n        350<span class=\"text-xs\">kcal</span>\n    </td>\n    <td class=\"px-6 py-2\">\n        n/a\n    </td>\n                                <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n                                        <td class=\"px-2 py-2\"></td>\n            <td class=\"px-2 py-2\"></td>\n            </tr>\n"
+    },
+    {
+        "active": true,
         "searchables": "night ride",
         "filterables": {
             "sportType": "Ride",

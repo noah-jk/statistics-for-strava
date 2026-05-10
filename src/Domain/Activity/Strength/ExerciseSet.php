@@ -58,7 +58,16 @@ final readonly class ExerciseSet implements \JsonSerializable
 
     public function isBodyweight(): bool
     {
-        return !$this->weightLbs instanceof \App\Infrastructure\ValueObject\Measurement\Mass\Pound;
+        return !$this->weightLbs instanceof Pound;
+    }
+
+    public function getEstimatedOneRepMax(): ?float
+    {
+        if (!$this->weightLbs instanceof Pound) {
+            return null;
+        }
+
+        return $this->weightLbs->toFloat() * (1 + $this->numberOfReps / 30.0);
     }
 
     /** @return array<string, mixed> */
