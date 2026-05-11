@@ -130,4 +130,62 @@ class StrengthWorkoutDescriptionParserTest extends TestCase
         $exercises = $this->parser->parse($description);
         $this->assertCount(3, $exercises);
     }
+
+    public function testParseCommaSeperatedSetsOnOneLine(): void
+    {
+        $exercises = $this->parser->parse('Squat 1x1@350, 2x3@295');
+
+        $this->assertCount(2, $exercises);
+        $items = $exercises->toArray();
+
+        $this->assertEquals('Squat', (string) $items[0]->getExerciseName());
+        $this->assertEquals(1, $items[0]->getNumberOfSets());
+        $this->assertEquals(1, $items[0]->getNumberOfReps());
+        $this->assertEquals(350.0, $items[0]->getWeightLbs()->toFloat());
+
+        $this->assertEquals('Squat', (string) $items[1]->getExerciseName());
+        $this->assertEquals(2, $items[1]->getNumberOfSets());
+        $this->assertEquals(3, $items[1]->getNumberOfReps());
+        $this->assertEquals(295.0, $items[1]->getWeightLbs()->toFloat());
+    }
+
+    public function testParseCommaSeperatedSetsWithBodyweight(): void
+    {
+        $exercises = $this->parser->parse('Pull Up 3x5, 2x8');
+
+        $this->assertCount(2, $exercises);
+        $items = $exercises->toArray();
+
+        $this->assertEquals('Pull Up', (string) $items[0]->getExerciseName());
+        $this->assertEquals(3, $items[0]->getNumberOfSets());
+        $this->assertTrue($items[0]->isBodyweight());
+
+        $this->assertEquals('Pull Up', (string) $items[1]->getExerciseName());
+        $this->assertEquals(2, $items[1]->getNumberOfSets());
+        $this->assertTrue($items[1]->isBodyweight());
+    }
+
+    public function testParseCommaSeperatedSetsMultipleExercises(): void
+    {
+        $description = implode("\n", [
+            'Squat 1x1@350, 2x3@295',
+            'Bench Press 4x8@185',
+            'Pull Up 3x5, 2x8',
+        ]);
+
+        $exercises = $this->parser->parse($description);
+        $this->assertCount(5, $exercises);
+
+        $items = $exercises->toArray();
+        $this->assertEquals('Squat', (string) $items[0]->getExerciseName());
+        $this->assertEquals(350.0, $items[0]->getWeightLbs()->toFloat());
+        $this->assertEquals('Squat', (string) $items[1]->getExerciseName());
+        $this->assertEquals(295.0, $items[1]->getWeightLbs()->toFloat());
+        $this->assertEquals('Bench Press', (string) $items[2]->getExerciseName());
+        $this->assertEquals(185.0, $items[2]->getWeightLbs()->toFloat());
+        $this->assertEquals('Pull Up', (string) $items[3]->getExerciseName());
+        $this->assertTrue($items[3]->isBodyweight());
+        $this->assertEquals('Pull Up', (string) $items[4]->getExerciseName());
+        $this->assertTrue($items[4]->isBodyweight());
+    }
 }

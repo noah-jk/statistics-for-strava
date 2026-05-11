@@ -8,12 +8,16 @@ use App\Infrastructure\ValueObject\Measurement\Mass\Pound;
 
 final class StrengthWorkoutDescriptionParser
 {
-    // Format: [lift_name] [sets]x[reps]  or  [lift_name] [sets]x[reps]@[weight]
-    // Name must start with a letter; sets/reps must be positive (no zero, no leading zeros).
-    // The lookahead (?=\d+x\d+) anchors the boundary between name and the numeric token,
+    // Extracts the exercise name and the raw tokens string from a line.
+    // The lookahead (?=\d+x\d+) anchors the boundary between name and the first set token,
     // allowing multi-word names like "Bench Press" without ambiguity.
     private const string LINE_PATTERN =
-        '/^(?P<name>[A-Za-z][A-Za-z0-9 ]*?)\s+(?=\d+x\d+)(?P<sets>[1-9]\d*)x(?P<reps>[1-9]\d*)(?:@(?P<weight>\d+(?:\.\d+)?))?$/';
+        '/^(?P<name>[A-Za-z][A-Za-z0-9 ]*?)\s+(?=\d+x\d+)(?P<tokens>.+)$/';
+
+    // Matches a single set token: [sets]x[reps] or [sets]x[reps]@[weight]
+    // Sets/reps must be positive (no zero, no leading zeros).
+    private const string SET_TOKEN_PATTERN =
+        '/^(?P<sets>[1-9]\d*)x(?P<reps>[1-9]\d*)(?:@(?P<weight>\d+(?:\.\d+)?))?$/';
 
     public function parse(string $description): StrengthWorkoutExercises
     {
@@ -32,14 +36,21 @@ final class StrengthWorkoutDescriptionParser
                 continue;
             }
 
-            $exercises->add(ExerciseSet::create(
-                exerciseName: ExerciseName::fromString($matches['name']),
-                numberOfSets: (int) $matches['sets'],
-                numberOfReps: (int) $matches['reps'],
-                weightLbs: isset($matches['weight'])
-                    ? Pound::from((float) $matches['weight'])
-                    : null,
-            ));
+            $exerciseName = ExerciseName::fromString($matches['name']);
+            foreach (preg_split('/\s*,\s*/', $matches['tokens']) ?: [] as $token) {
+                if (!preg_match(self::SET_TOKEN_PATTERN, $token, $t)) {
+                    continue;
+                }
+
+                $exercises->add(ExerciseSet::create(
+                    exerciseName: $exerciseName,
+                    numberOfSets: (int) $t['sets'],
+                    numberOfReps: (int) $t['reps'],
+                    weightLbs: '' !== ($t['weight'] ?? '')
+                        ? Pound::from((float) $t['weight'])
+                        : null,
+                ));
+            }
         }
 
         return $exercises;
