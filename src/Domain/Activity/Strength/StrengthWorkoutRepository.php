@@ -15,4 +15,7 @@ interface StrengthWorkoutRepository
     public function isImportedForActivity(ActivityId $activityId): bool;
 
     public function deleteForActivity(ActivityId $activityId): void;
+
+    /** @return ActivityId[] */
+    public function findUnprocessedWeightTrainingActivityIds(): array;
 }

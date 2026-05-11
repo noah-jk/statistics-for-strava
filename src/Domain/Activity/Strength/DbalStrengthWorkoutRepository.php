@@ -66,6 +66,17 @@ final readonly class DbalStrengthWorkoutRepository extends DbalRepository implem
         );
     }
 
+    public function findUnprocessedWeightTrainingActivityIds(): array
+    {
+        $rows = $this->connection->executeQuery(
+            "SELECT activityId FROM Activity
+             WHERE sportType = 'WeightTraining'
+               AND activityId NOT IN (SELECT DISTINCT activityId FROM ActivityStrengthSet)",
+        )->fetchFirstColumn();
+
+        return array_map(ActivityId::fromString(...), $rows);
+    }
+
     /**
      * @param array<string, mixed> $result
      */
