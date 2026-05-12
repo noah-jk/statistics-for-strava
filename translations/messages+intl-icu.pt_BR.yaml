@@ -180,6 +180,7 @@ Laps: Laps
 'Last maintenance': 'Última manutenção'
 'Last {numberOfDays} days': 'Últimos {numberOfDays} dias'
 Lifetime: Lifetime
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Light fatigue with good readiness. A great balance for quality training or longer efforts'
 Load: Load
 'Load (CTL/ATL)': 'Load (CTL/ATL)'
@@ -297,6 +298,7 @@ Rowing: Remo
 Running: Running
 Runs: Corridas
 Reps: 'Repetições'
+'SBD Total': 'SBD Total'
 Sail: Vela
 Sat: Sáb
 Saturday: Sábado
@@ -306,6 +308,7 @@ Search: Pesquisar
 Segments: Segmentos
 Sets: 'Séries'
 Strength: 'Força'
+'Strength stats': 'Strength stats'
 Sep: Set
 'Show information': 'Mostrar informação'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'
@@ -444,6 +447,7 @@ Time: Time
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': 'Para ativar, configure {configFile} e reconstrua os arquivos para que as alterações entrem em vigor'
 'Toggle sidebar': 'Ativar/desativar barra lateral'
 'Top 10': 'Top 10'
+Total: Total
 'Total distance per month': 'Total distance per month'
 'Total elevation per month': 'Total elevation per month'
 'Total hours': 'Total hours'

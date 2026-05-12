@@ -180,6 +180,7 @@ Laps: Laps
 'Last maintenance': 'Last maintenance'
 'Last {numberOfDays} days': 'Last {numberOfDays} days'
 Lifetime: Lifetime
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Light fatigue with good readiness. A great balance for quality training or longer efforts'
 Load: Load
 'Load (CTL/ATL)': 'Load (CTL/ATL)'
@@ -297,6 +298,7 @@ Rowing: Roeien
 Running: Running
 Runs: Hardlopen
 Reps: Herhalingen
+'SBD Total': 'SBD Total'
 Sail: Zeilen
 Sat: Zat
 Saturday: Zaterdag
@@ -306,6 +308,7 @@ Search: Zoeken
 Segments: Segmenten
 Sets: Sets
 Strength: Kracht
+'Strength stats': 'Strength stats'
 Sep: Sep
 'Show information': 'Informatie tonen'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'
@@ -444,6 +447,7 @@ Time: Time
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': 'To enable it, configure {configFile} and rebuild the files for the changes to take effect'
 'Toggle sidebar': 'Toggle sidebar'
 'Top 10': 'Top 10'
+Total: Total
 'Total distance per month': 'Total distance per month'
 'Total elevation per month': 'Total elevation per month'
 'Total hours': 'Total hours'
