@@ -1,15 +1,23 @@
 {% set uniqueId = uniqueNumberForId('strengthStats') %}
 {% autoescape false %}
     <h3 class="mb-4 text-lg font-semibold">{{ "Strength stats"|trans }}</h3>
-    <div class="grid grid-cols-3 gap-4 mb-4">
-        {% for exerciseName, pr in allTimePRs|slice(0, 3) %}
-            <div class="bg-gray-50 rounded p-3 text-center">
-                <div class="text-xs text-gray-500 uppercase mb-1">{{ exerciseName }}</div>
-                <div class="text-lg font-bold text-gray-900">{{ pr|formatNumber(0) }}<span class="text-xs font-normal"> lbs</span></div>
-                <div class="text-xs text-gray-400">{{ "Est. 1RM"|trans }}</div>
-            </div>
-        {% endfor %}
-    </div>
+    {% if primaryLifts|length > 0 %}
+        <div class="grid grid-cols-3 gap-4 mb-4">
+            {% for exerciseName in primaryLifts %}
+                <div class="bg-gray-50 rounded p-3 text-center">
+                    <div class="text-xs text-gray-500 uppercase mb-1">{{ exerciseName }}</div>
+                    <div class="text-lg font-bold text-gray-900">
+                        {% if allTimePRs[exerciseName] is defined %}
+                            {{ allTimePRs[exerciseName]|formatNumber(0) }}<span class="text-xs font-normal"> lbs</span>
+                        {% else %}
+                            &mdash;
+                        {% endif %}
+                    </div>
+                    <div class="text-xs text-gray-400">{{ "Best 1RM"|trans }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     {% if liftsChart or totalChart %}
         <div class="tabs tabs--default">
             <ul id="strengthStatsTabs{{ uniqueId }}" data-tabs="#strengthStatsTabContent{{ uniqueId }}"

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Dashboard\Widget\StrengthStats;
 
+use App\Domain\Activity\Strength\StrengthConfig;
 use App\Domain\Activity\Strength\StrengthWorkoutRepository;
 use App\Domain\Dashboard\Widget\Widget;
 use App\Domain\Dashboard\Widget\WidgetConfiguration;
@@ -16,6 +17,7 @@ final readonly class StrengthStatsWidget implements Widget
 {
     public function __construct(
         private StrengthWorkoutRepository $strengthWorkoutRepository,
+        private StrengthConfig $strengthConfig,
         private Environment $twig,
         private TranslatorInterface $translator,
     ) {
@@ -46,6 +48,7 @@ final readonly class StrengthStatsWidget implements Widget
         $totalChart = $chart->buildTotalChart($weeklyTotals);
 
         return $this->twig->load('html/dashboard/widget/widget--strength-stats.html.twig')->render([
+            'primaryLifts' => $this->strengthConfig->getPrimaryLifts(),
             'allTimePRs' => $allTimePRs,
             'liftsChart' => [] !== $liftsChart ? Json::encode($liftsChart) : null,
             'totalChart' => [] !== $totalChart ? Json::encode($totalChart) : null,
