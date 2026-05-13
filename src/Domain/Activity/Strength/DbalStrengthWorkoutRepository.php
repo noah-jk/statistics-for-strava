@@ -154,6 +154,63 @@ final readonly class DbalStrengthWorkoutRepository extends DbalRepository implem
         return $result;
     }
 
+    public function findAllTimeDailyBestByExercise(array $exercises): array
+    {
+        if ([] === $exercises) {
+            return [];
+        }
+
+        $placeholders = implode(',', array_fill(0, count($exercises), '?'));
+        $rows = $this->connection->executeQuery(
+            "SELECT date(a.startDateTime) AS activityDate, s.exerciseName, MAX(s.estimatedOneRepMax) AS best1RM
+             FROM ActivityStrengthSet s
+             JOIN Activity a ON s.activityId = a.activityId
+             WHERE s.exerciseName IN ({$placeholders}) AND s.estimatedOneRepMax IS NOT NULL
+             GROUP BY activityDate, s.exerciseName
+             ORDER BY activityDate ASC, s.exerciseName ASC",
+            $exercises,
+        )->fetchAllAssociative();
+
+        $result = [];
+        foreach ($rows as $row) {
+            $result[$row['exerciseName']][] = [
+                'date' => $row['activityDate'],
+                'value' => (float) $row['best1RM'],
+            ];
+        }
+
+        return $result;
+    }
+
+    public function findAllTimeWeeklyVolumeByExercise(array $exercises): array
+    {
+        if ([] === $exercises) {
+            return [];
+        }
+
+        $placeholders = implode(',', array_fill(0, count($exercises), '?'));
+        $rows = $this->connection->executeQuery(
+            "SELECT strftime('%Y-W%W', a.startDateTime) AS week, s.exerciseName,
+                    SUM(s.numberOfSets * s.numberOfReps * COALESCE(s.weightLbs, 0)) AS volume
+             FROM ActivityStrengthSet s
+             JOIN Activity a ON s.activityId = a.activityId
+             WHERE s.exerciseName IN ({$placeholders})
+             GROUP BY week, s.exerciseName
+             ORDER BY week ASC, s.exerciseName ASC",
+            $exercises,
+        )->fetchAllAssociative();
+
+        $result = [];
+        foreach ($rows as $row) {
+            $result[$row['exerciseName']][] = [
+                'week' => (string) $row['week'],
+                'volume' => (float) $row['volume'],
+            ];
+        }
+
+        return $result;
+    }
+
     /**
      * @param array<string, mixed> $result
      */

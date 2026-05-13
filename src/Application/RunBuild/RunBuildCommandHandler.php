@@ -22,6 +22,7 @@ use App\Application\Build\BuildPhotosHtml\BuildPhotosHtml;
 use App\Application\Build\BuildRecordingDevices\BuildRecordingDevices;
 use App\Application\Build\BuildRewindHtml\BuildRewindHtml;
 use App\Application\Build\BuildSegmentsHtml\BuildSegmentsHtml;
+use App\Application\Build\BuildStrengthHtml\BuildStrengthHtml;
 use App\Application\Build\ConfigureAppColors\ConfigureAppColors;
 use App\Application\Build\ConfigureAppLocale\ConfigureAppLocale;
 use App\Application\Import\ImportGear\GearImportStatus;
@@ -84,6 +85,7 @@ This is not a bug, once all your activities have been imported, your gear statis
             'Building gear maintenance' => new BuildGearMaintenanceHtml(),
             'Building recording devices' => new BuildRecordingDevices(),
             'Building eddington' => new BuildEddingtonHtml($now),
+            'Building strength' => new BuildStrengthHtml($now),
             'Building milestones' => new BuildMilestonesHtml(),
             'Building segments' => new BuildSegmentsHtml(),
             'Building heatmap' => new BuildHeatmapHtml($now),

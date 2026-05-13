@@ -28,4 +28,18 @@ interface StrengthWorkoutRepository
 
     /** @return array<string, float> */
     public function findAllTimePRPerExercise(): array;
+
+    /**
+     * @param string[] $exercises
+     *
+     * @return array<string, list<array{date: string, value: float}>>
+     */
+    public function findAllTimeDailyBestByExercise(array $exercises): array;
+
+    /**
+     * @param string[] $exercises
+     *
+     * @return array<string, list<array{week: string, volume: float}>>
+     */
+    public function findAllTimeWeeklyVolumeByExercise(array $exercises): array;
 }

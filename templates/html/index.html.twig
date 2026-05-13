@@ -118,6 +118,17 @@
                         </div>
                     </a>
                 </li>
+                {% if hasStrengthData %}
+                    <li>
+                        <a href="{{ relativeUrl('strength') }}" data-router-navigate="{{ relativeUrl('strength') }}" {{ isSymfonyRouter ? 'data-router-disabled' : '' }}
+                           class="sidebar-menu-link">
+                            <svg class="sidebar-menu-link-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6h12M6 12h12M6 18h12M3 6h.01M3 12h.01M3 18h.01"/>
+                            </svg>
+                            <span class="flex-1 whitespace-nowrap">{{ "Strength"|trans }}</span>
+                        </a>
+                    </li>
+                {% endif %}
                 <li>
                     <a href="{{ relativeUrl('heatmap') }}" data-router-navigate="{{ relativeUrl('heatmap') }}" {{ isSymfonyRouter ? 'data-router-disabled' : '' }}
                        class="sidebar-menu-link">
