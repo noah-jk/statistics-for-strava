@@ -99,7 +99,8 @@ Elevation: 海拔高度
 Elliptical: 椭圆机
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: 晚上
-'Est. 1RM': '估计1RM'
+'Est. 1RM': 'Est. 1RM'
+'Best 1RM': 'Best 1RM'
 Exercise: 练习
 'Excludes commutes': 筛除通勤
 'FTP history': FTP历史
@@ -180,6 +181,7 @@ Laps: 圈
 'Last maintenance': 最后维护
 'Last {numberOfDays} days': '最近{numberOfDays}天'
 Lifetime: Lifetime
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Light fatigue with good readiness. A great balance for quality training or longer efforts'
 Load: Load
 'Load (CTL/ATL)': '负荷 (CTL/ATL)'
@@ -267,6 +269,7 @@ Power: 功率
 'Powered by an estimated {caloriesBurned} calories, or roughly {numberOfPizzaSlices} slices of pizza 🍕.': '消耗了约{caloriesBurned}卡路里，或大约{numberOfPizzaSlices}片披萨🍕。'
 'Prev year': 去年
 Previous: Previous
+Progression: Progression
 Race: 比赛
 'Racing Score': 赛车成绩
 'Racquet & Paddle Sports': 球拍和桨类运动
@@ -297,6 +300,7 @@ Rowing: 划船
 Running: 跑步
 Runs: 跑步
 Reps: 次数
+'SBD Total': 'SBD Total'
 Sail: 帆船
 Sat: 周六
 Saturday: 星期六
@@ -306,6 +310,7 @@ Search: 搜索
 Segments: 路段
 Sets: 组数
 Strength: 力量训练
+'Strength stats': 'Strength stats'
 Sep: 九月
 'Show information': 显示信息
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'
@@ -444,6 +449,7 @@ Time: 时间
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': '请配置{configFile}并重新构建文件以开启此功能'
 'Toggle sidebar': 切换侧边栏
 'Top 10': 前10名
+Total: Total
 'Total distance per month': 每月总距离
 'Total elevation per month': 每月总海拔
 'Total hours': 总时长

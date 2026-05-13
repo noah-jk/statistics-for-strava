@@ -11,6 +11,7 @@ use App\Domain\Activity\ActivityIdRepository;
 use App\Domain\Activity\BestEffort\ActivityBestEffortRepository;
 use App\Domain\Activity\Eddington\EddingtonCalculator;
 use App\Domain\Activity\Image\ImageRepository;
+use App\Domain\Activity\Strength\StrengthWorkoutRepository;
 use App\Domain\Athlete\AthleteRepository;
 use App\Domain\Challenge\ChallengeRepository;
 use App\Domain\Gear\GearRepository;
@@ -32,6 +33,7 @@ final readonly class IndexHtml
         private ImageRepository $imageRepository,
         private EddingtonCalculator $eddingtonCalculator,
         private MaintenanceTaskProgressCalculator $maintenanceTaskProgressCalculator,
+        private StrengthWorkoutRepository $strengthWorkoutRepository,
         private ?ProfilePictureUrl $profilePictureUrl,
         private ?AppSubTitle $appSubTitle,
         private AppUrl $appUrl,
@@ -67,6 +69,7 @@ final readonly class IndexHtml
             'subTitle' => $this->appSubTitle,
             'maintenanceTaskIsDue' => !$this->maintenanceTaskProgressCalculator->getGearIdsThatHaveDueTasks()->isEmpty(),
             'hasBestEfforts' => $this->activityBestEffortRepository->hasData(),
+            'hasStrengthData' => [] !== $this->strengthWorkoutRepository->findAllTimePRPerExercise(),
             'javascriptWindowConstants' => Json::encode([
                 'countries' => Countries::getNames($this->localeSwitcher->getLocale()),
                 'appUrl' => [

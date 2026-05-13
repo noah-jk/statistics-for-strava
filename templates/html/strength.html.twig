@@ -1,0 +1,38 @@
+<div class="flex items-center justify-between mb-5">
+    <div class="flex items-center gap-x-1">
+        {% include 'html/navigation/breadcrumbs.html.twig' with {'breadcrumbs': [{
+            'url': 'strength',
+            'label': 'Strength'|trans
+        }], 'disableMargin': true} %}
+    </div>
+    <ul class="tabs tabs--pills" id="strengthPageTab" data-tabs="#strengthPageTabContent" role="tablist">
+        <li role="presentation">
+            <a href="#" data-tabs-target="#strengthProgressionTab" role="tab" aria-controls="strengthProgressionTab">
+                {{ "Progression"|trans }}
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" data-tabs-target="#strengthVolumeTab" role="tab" aria-controls="strengthVolumeTab">
+                {{ "Volume"|trans }}
+            </a>
+        </li>
+    </ul>
+</div>
+{% autoescape false %}
+    <div id="strengthPageTabContent">
+        <div id="strengthProgressionTab" role="tabpanel" aria-labelledby="strengthProgressionTab">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-xs">
+                    <div class="h-96" data-echarts-options='{{ progressionChart }}'></div>
+                </div>
+            </div>
+        </div>
+        <div id="strengthVolumeTab" role="tabpanel" aria-labelledby="strengthVolumeTab">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-xs">
+                    <div class="h-96" data-echarts-options='{{ volumeChart }}'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endautoescape %}

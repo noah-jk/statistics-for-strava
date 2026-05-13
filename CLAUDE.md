@@ -49,9 +49,10 @@ make migrate-run              # apply pending migrations
 
 Key Symfony console commands:
 ```bash
-app:strava:import-data        # sync activities from Strava API
-app:strava:build-app          # generate static build output
-app:daemon:run                # background daemon (runs inside daemon container)
+app:strava:import-data              # sync activities from Strava API
+app:strava:build-app                # generate static build output
+app:daemon:run                      # background daemon (runs inside daemon container)
+app:strava:backfill-strength-sets   # parse strength sets for historical WeightTraining activities
 ```
 
 ## Architecture
@@ -68,6 +69,10 @@ app:daemon:run                # background daemon (runs inside daemon container)
 | Console | `src/Console/` | CLI commands |
 
 **Key domains**: Activity, Athlete, Dashboard, Gear, Segment, Challenge, Milestone, Rewind, Ftp, Strava (OAuth/API)
+
+**Custom domains (this fork)**:
+- `Activity/Strength` — `StrengthWorkoutDescriptionParser`, `ExerciseSet`, `StrengthWorkoutRepository` (`ActivityStrengthSet` table), `StrengthConfig`
+- `Dashboard/Widget/StrengthStats` — `StrengthStatsWidget`, `StrengthStatsChart`
 
 **Database**: SQLite at `storage/database/strava.db`; Doctrine ORM with PHP attributes; migrations in `migrations/`
 
@@ -91,6 +96,28 @@ app:daemon:run                # background daemon (runs inside daemon container)
 ## Feature Tracking
 
 **GitHub Issues** — check open issues before starting new features to avoid duplication and align with planned direction.
+
+## Strength Tracking
+
+WeightTraining activities are parsed for per-set strength data from the Strava description field.
+
+**Format**: `{Exercise} {sets}x{reps}` or `{Exercise} {sets}x{reps}@{weight_lbs}`, comma-separated tokens allowed on one line. Prose lines are ignored.
+
+**Storage**: `ActivityStrengthSet` table (activityId + position composite PK). Epley 1RM (`weight × (1 + reps/30)`) is computed and stored at write time.
+
+**Pipeline**: `ProcessStrengthWorkouts` runs inside `app:strava:import-data` for new/unprocessed activities. `app:strava:backfill-strength-sets` handles historical activities.
+
+**Config** (`config/app/config-athlete.yaml`):
+```yaml
+strength:
+  primaryLifts:
+    - 'Squat'
+    - 'Bench Press'
+    - 'Deadlift'
+```
+Controls the PR summary boxes on the `strengthStats` dashboard widget.
+
+**Full docs**: `docs/strength-tracking.md`
 
 ## Development Notes
 

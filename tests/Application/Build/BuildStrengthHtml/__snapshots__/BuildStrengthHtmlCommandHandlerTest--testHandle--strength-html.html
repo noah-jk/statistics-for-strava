@@ -1,0 +1,50 @@
+<html><body>
+<div class="flex items-center justify-between mb-5">
+    <div class="flex items-center gap-x-1">
+        <nav class="flex " aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
+        <li class="inline-flex items-center">
+            <a href="/dashboard" data-router-navigate="/dashboard" class="inline-flex items-center text-gray-700 hover:text-primary-600 hover:underline">
+                <svg class="w-5 h-5 mr-2.5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z"></path></svg>
+                Dashboard
+            </a>
+        </li>
+                    <li>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                    <a href="/strength" data-router-navigate="/strength" class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2">Strength</a>
+                </div>
+            </li>
+            </ol>
+</nav>
+    </div>
+    <ul class="tabs tabs--pills" id="strengthPageTab" data-tabs="#strengthPageTabContent" role="tablist">
+        <li role="presentation">
+            <a href="#" data-tabs-target="#strengthProgressionTab" role="tab" aria-controls="strengthProgressionTab">
+                Progression
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" data-tabs-target="#strengthVolumeTab" role="tab" aria-controls="strengthVolumeTab">
+                Volume
+            </a>
+        </li>
+    </ul>
+</div>
+    <div id="strengthPageTabContent">
+        <div id="strengthProgressionTab" role="tabpanel" aria-labelledby="strengthProgressionTab">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-xs">
+                    <div class="h-96" data-echarts-options='{"animation":true,"backgroundColor":null,"grid":{"left":"10px","right":"10px","bottom":"50px","containLabel":true},"legend":{"show":true},"tooltip":{"trigger":"axis"},"dataZoom":[{"type":"slider","startValue":0,"endValue":1,"brushSelect":false,"zoomLock":false}],"xAxis":[{"type":"category","boundaryGap":false,"data":["2024-01-15"],"axisLabel":{"rotate":-30,"interval":"auto"}}],"yAxis":[{"type":"value","axisLabel":{"formatter":"{value} lbs"},"splitLine":{"show":true,"lineStyle":{"color":"#E0E6F1"}}}],"series":[{"name":"Squat","type":"line","smooth":false,"connectNulls":true,"lineStyle":{"width":2},"symbolSize":6,"showSymbol":true,"data":[367.5]}]}'></div>
+                </div>
+            </div>
+        </div>
+        <div id="strengthVolumeTab" role="tabpanel" aria-labelledby="strengthVolumeTab">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-xs">
+                    <div class="h-96" data-echarts-options='{"animation":true,"backgroundColor":null,"grid":{"left":"10px","right":"10px","bottom":"50px","containLabel":true},"legend":{"show":true},"tooltip":{"trigger":"axis"},"dataZoom":[{"type":"slider","startValue":0,"endValue":1,"brushSelect":false,"zoomLock":false}],"xAxis":[{"type":"category","data":["2024-W03"],"axisLabel":{"rotate":-30,"interval":"auto"}}],"yAxis":[{"type":"value","axisLabel":{"formatter":"{value} lbs"}}],"series":[{"name":"Squat","type":"bar","data":[4725]}]}'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body></html>

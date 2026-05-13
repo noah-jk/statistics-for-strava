@@ -100,6 +100,7 @@ Elliptical: Ellittica
 'Enter fullscreen mode': 'Entra in modalità schermo intero'
 Evening: Sera
 'Est. 1RM': 'Est. 1RM'
+'Best 1RM': 'Best 1RM'
 Exercise: Esercizio
 'Excludes commutes': 'Esclude gli spostamenti casa-lavoro'
 'FTP history': 'Storico FTP'
@@ -180,6 +181,7 @@ Laps: Giri
 'Last maintenance': 'Ultima manutenzione'
 'Last {numberOfDays} days': 'Ultimi {numberOfDays} giorni'
 Lifetime: Lifetime
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Fatica leggera con buona prontezza. Un ottimo equilibrio per allenamenti di qualità o sforzi più lunghi'
 Load: Load
 'Load (CTL/ATL)': 'Carico (CTL/ATL)'
@@ -267,6 +269,7 @@ Power: Potenza
 'Powered by an estimated {caloriesBurned} calories, or roughly {numberOfPizzaSlices} slices of pizza 🍕.': 'Powered by {caloriesBurned} calorie, ovvero circa {numberOfPizzaSlices} fette di pizza 🍕.'
 'Prev year': 'Anno precedente'
 Previous: Previous
+Progression: Progression
 Race: Gara
 'Racing Score': 'Punteggio Gara'
 'Racquet & Paddle Sports': 'Sport con racchetta e pagaia'
@@ -297,6 +300,7 @@ Rowing: Canottaggio
 Running: Running
 Runs: Corse
 Reps: Ripetizioni
+'SBD Total': 'SBD Total'
 Sail: Vela
 Sat: Sab
 Saturday: Sabato
@@ -306,6 +310,7 @@ Search: Cerca
 Segments: Segmenti
 Sets: Serie
 Strength: Forza
+'Strength stats': 'Strength stats'
 Sep: Set
 'Show information': 'Mostra Informazione'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Mostra come il tuo TSB (Forma) e il rapporto A:C recupereranno nel tempo se fai giorni di riposo completo.'
@@ -444,6 +449,7 @@ Time: Tempo
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': 'Per abilitarla, configura {configFile} e rigenera i file affinché le modifiche abbiano effetto'
 'Toggle sidebar': 'Mostra/Nascondi barra laterale'
 'Top 10': 'Primi 10'
+Total: Total
 'Total distance per month': 'Distanza totale per mese'
 'Total elevation per month': 'Dislivello totale per mese'
 'Total hours': 'Ore totali'

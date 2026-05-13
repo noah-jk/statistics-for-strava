@@ -100,6 +100,7 @@ Elliptical: Crosstrainer
 'Enter fullscreen mode': 'Vollbildmodus aktivieren'
 Evening: Abend
 'Est. 1RM': 'Est. 1RM'
+'Best 1RM': 'Best 1RM'
 Exercise: Übung
 'Excludes commutes': 'Pendler ausschließen'
 'FTP history': FTP-Verlauf
@@ -180,6 +181,7 @@ Laps: Runden
 'Last maintenance': 'Letzte Wartung'
 'Last {numberOfDays} days': 'Letzten {numberOfDays} Tage'
 Lifetime: Gesamtzeitraum
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Leichte Ermüdung bei guter Bereitschaft. Eine super Balance für Qualitätstraining oder längere Einheiten'
 Load: Belastung
 'Load (CTL/ATL)': 'Lade (CTL/ATL)'
@@ -267,6 +269,7 @@ Power: Leistung
 'Powered by an estimated {caloriesBurned} calories, or roughly {numberOfPizzaSlices} slices of pizza 🍕.': 'Dabei wurden geschätzte {caloriesBurned} Kalorien verbraucht, was ungefähr {numberOfPizzaSlices} Pizzastücken entspricht 🍕.'
 'Prev year': Vorjahr
 Previous: Vorherige
+Progression: Progression
 Race: Wettkampf
 'Racing Score': Wettkampfpunktzahl
 'Racquet & Paddle Sports': 'Schläger- & Paddelsportarten'
@@ -297,6 +300,7 @@ Rowing: Rudern
 Running: Laufen
 Runs: Läufe
 Reps: Wiederholungen
+'SBD Total': 'SBD Total'
 Sail: Segeln
 Sat: Sa
 Saturday: Samstag
@@ -306,6 +310,7 @@ Search: Suche
 Segments: Segmente
 Sets: Sätze
 Strength: Kraft
+'Strength stats': 'Strength stats'
 Sep: Sep
 'Show information': 'Informationen anzeigen'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Hier siehst du, wie sich deine Form (TSB) und dein A:C-Verhältnis entwickeln, wenn du komplette Ruhetage einlegst..'
@@ -444,6 +449,7 @@ Time: Zeit
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': 'Um es zu aktivieren, passe {configFile} an und builde die Dateien erneut, damit die Änderungen wirksam werden'
 'Toggle sidebar': 'Seitenleiste umschalten'
 'Top 10': 'Top 10'
+Total: Total
 'Total distance per month': 'Gesamtdistanz pro Monat'
 'Total elevation per month': 'Gesamthöhenmeter pro Monat'
 'Total hours': Gesamtstunden

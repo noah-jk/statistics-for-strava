@@ -201,6 +201,10 @@ services:
             '@App\Infrastructure\ValueObject\Measurement\UnitSystem'
         ]
 
+    App\Domain\Activity\Strength\StrengthConfig:
+        factory: [ null, 'fromArray' ]
+        arguments: ['@=app_config("strength.primaryLifts", [])']
+
     App\Domain\Ftp\FtpHistory:
         factory: [ null, 'fromArray' ]
         arguments: ['@=app_config("general.athlete.ftpHistory")']

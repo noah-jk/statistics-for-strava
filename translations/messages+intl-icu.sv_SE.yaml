@@ -100,6 +100,7 @@ Elliptical: Elliptisk
 'Enter fullscreen mode': 'Enter fullscreen mode'
 Evening: Kväll
 'Est. 1RM': 'Est. 1RM'
+'Best 1RM': 'Best 1RM'
 Exercise: Övning
 'Excludes commutes': 'Uteslut pendling'
 'FTP history': 'FTP historik'
@@ -180,6 +181,7 @@ Laps: Varv
 'Last maintenance': 'Senast underhållet'
 'Last {numberOfDays} days': 'Senaste {numberOfDays} dagarna'
 Lifetime: Lifetime
+Lifts: Lifts
 'Light fatigue with good readiness. A great balance for quality training or longer efforts': 'Light fatigue with good readiness. A great balance for quality training or longer efforts'
 Load: Load
 'Load (CTL/ATL)': 'Belastning (CTL/ATL)'
@@ -267,6 +269,7 @@ Power: Effekt
 'Powered by an estimated {caloriesBurned} calories, or roughly {numberOfPizzaSlices} slices of pizza 🍕.': 'Powered by an estimated {caloriesBurned} calories, or roughly {numberOfPizzaSlices} slices of pizza 🍕.'
 'Prev year': 'Tidigare år'
 Previous: Previous
+Progression: Progression
 Race: Tävling
 'Racing Score': Tävlingspoäng
 'Racquet & Paddle Sports': 'Rack & Paddel Sporter'
@@ -297,6 +300,7 @@ Rowing: Rodd
 Running: Löpning
 Runs: Löpturer
 Reps: Reps
+'SBD Total': 'SBD Total'
 Sail: Segling
 Sat: Lör
 Saturday: Lördag
@@ -306,6 +310,7 @@ Search: Sök
 Segments: Segment
 Sets: Set
 Strength: Styrka
+'Strength stats': 'Strength stats'
 Sep: Sep
 'Show information': 'Visa information'
 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.': 'Shows how your TSB (Form) and A:C Ratio will recover over time if you take complete rest days.'
@@ -444,6 +449,7 @@ Time: Tid
 'To enable it, configure {configFile} and rebuild the files for the changes to take effect': 'För att aktivera, konfigurera {configFile} och bygg om filerna så att ändringarna träder i kraft'
 'Toggle sidebar': 'Visa/Dölj sidofält'
 'Top 10': '10 bästa'
+Total: Total
 'Total distance per month': 'Total distans per månad'
 'Total elevation per month': 'Totala antalet höjdmeter per månad'
 'Total hours': 'Totala antalet timmar'
