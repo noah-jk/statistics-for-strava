@@ -32,6 +32,7 @@ final class StrengthWorkoutDescriptionParser
             if ('' === $trimmed) {
                 continue;
             }
+            $trimmed = (string) preg_replace('/\s+RPE\d+(?:\.\d+)?$/i', '', $trimmed);
             if (!preg_match(self::LINE_PATTERN, $trimmed, $matches)) {
                 continue;
             }
