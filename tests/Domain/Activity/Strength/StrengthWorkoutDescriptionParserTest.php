@@ -165,6 +165,61 @@ class StrengthWorkoutDescriptionParserTest extends TestCase
         $this->assertTrue($items[1]->isBodyweight());
     }
 
+    public function testParseRpeSuffixIsSilentlyStripped(): void
+    {
+        $exercises = $this->parser->parse('Bench 2x5@192.5, 1x9@192.5 RPE9');
+
+        $this->assertCount(2, $exercises);
+        $items = $exercises->toArray();
+        $this->assertEquals('Bench', (string) $items[0]->getExerciseName());
+        $this->assertEquals(2, $items[0]->getNumberOfSets());
+        $this->assertEquals(5, $items[0]->getNumberOfReps());
+        $this->assertEquals(192.5, $items[0]->getWeightLbs()->toFloat());
+        $this->assertEquals(1, $items[1]->getNumberOfSets());
+        $this->assertEquals(9, $items[1]->getNumberOfReps());
+        $this->assertEquals(192.5, $items[1]->getWeightLbs()->toFloat());
+    }
+
+    public function testParseRpeSuffixWithDecimalIsStripped(): void
+    {
+        $exercises = $this->parser->parse('Squat 2x5@280, 1x7@280 RPE8.5');
+
+        $this->assertCount(2, $exercises);
+        $items = $exercises->toArray();
+        $this->assertEquals('Squat', (string) $items[0]->getExerciseName());
+        $this->assertEquals(280.0, $items[0]->getWeightLbs()->toFloat());
+        $this->assertEquals(280.0, $items[1]->getWeightLbs()->toFloat());
+    }
+
+    public function testParseRpeSuffixOnSingleSet(): void
+    {
+        $exercises = $this->parser->parse('Deadlift 1x5@315 RPE9');
+
+        $this->assertCount(1, $exercises);
+        $first = $exercises->getFirst();
+        $this->assertEquals('Deadlift', (string) $first->getExerciseName());
+        $this->assertEquals(1, $first->getNumberOfSets());
+        $this->assertEquals(5, $first->getNumberOfReps());
+        $this->assertEquals(315.0, $first->getWeightLbs()->toFloat());
+    }
+
+    public function testParseMultiLineWithRpeSuffix(): void
+    {
+        $description = implode("\n", [
+            'Squat 2x5@280, 1x7@280 RPE8',
+            'Bench 2x5@192.5, 1x9@192.5 RPE9',
+        ]);
+
+        $exercises = $this->parser->parse($description);
+        $this->assertCount(4, $exercises);
+
+        $items = $exercises->toArray();
+        $this->assertEquals('Squat', (string) $items[0]->getExerciseName());
+        $this->assertEquals('Squat', (string) $items[1]->getExerciseName());
+        $this->assertEquals('Bench', (string) $items[2]->getExerciseName());
+        $this->assertEquals('Bench', (string) $items[3]->getExerciseName());
+    }
+
     public function testParseCommaSeperatedSetsMultipleExercises(): void
     {
         $description = implode("\n", [
