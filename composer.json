@@ -58,7 +58,7 @@
         "symfony/runtime": "8.0.*",
         "symfony/translation": "8.0.*",
         "symfony/twig-bundle": "8.0.*",
-        "symfony/yaml": "8.0.*",
+        "symfony/yaml": "8.1.*",
         "twig/twig": "^3.21",
         "wyrihaximus/react-cron": "^5.3"
     },
